@@ -110,23 +110,6 @@ const Hero = () => {
                     ))}
                   </div>
                 </div>
-
-                {/* Info Strip */}
-                <div className="flex items-center justify-between mt-6 pt-6 border-t border-border">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Clock className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-foreground">Quick Access</p>
-                      <p className="text-sm text-muted-foreground">Unlock in seconds</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-display font-bold text-2xl text-primary">OTP</p>
-                    <p className="text-sm text-muted-foreground">Secure</p>
-                  </div>
-                </div>
               </div>
             </div>
 
