@@ -28,7 +28,7 @@ const Header = () => {
               <Lock className="w-5 h-5 text-primary-foreground" />
             </div>
             <span className="font-display font-bold text-xl text-foreground">
-              Lock<span className="text-gradient-primary">&Go</span>
+              Lock<span className="text-gradient-primary">andGo</span>
             </span>
           </a>
 
