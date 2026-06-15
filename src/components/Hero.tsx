@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Shield } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 
 const Hero = () => {
@@ -13,16 +13,6 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/15 text-foreground font-medium text-sm mb-6 border border-accent/30"
-          >
-            <Shield className="w-4 h-4 text-accent" />
-            Trusted by 10,000+ Kenyans
-          </motion.div>
 
           {/* Tagline */}
           <motion.p

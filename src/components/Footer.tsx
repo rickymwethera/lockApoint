@@ -139,7 +139,7 @@ const Footer = () => {
           <p>© {currentYear} LockAPoint. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="/terms" className="hover:text-white transition-colors">Terms & Conditions</a>
           </div>
         </div>
       </div>
