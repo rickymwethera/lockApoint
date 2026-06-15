@@ -4,11 +4,6 @@ import { Shield, Zap, CreditCard, MapPin, Clock, Headphones } from "lucide-react
 const WhyUs = () => {
   const features = [
     {
-      icon: Shield,
-      title: "Bank-Level Security",
-      description: "Heavy-duty steel lockers with secure OTP access. Your valuables are protected 24/7.",
-    },
-    {
       icon: Zap,
       title: "Lightning Fast",
       description: "Store and retrieve in seconds. No queues, no waiting, no hassle.",

@@ -3,8 +3,8 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { useTheme } from "./ThemeProvider";
-import logoLight from "@/assets/lockapoint-logo-light.svg.asset.json";
-import logoDark from "@/assets/lockapoint-logo-dark.svg.asset.json";
+import logoLight from "@/assets/lockapoint-logo-light-v2.svg.asset.json";
+import logoDark from "@/assets/lockapoint-logo-dark-v2.svg.asset.json";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,13 +25,13 @@ const Header = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border"
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
             <img
               src={theme === "dark" ? logoDark.url : logoLight.url}
               alt="LockAPoint"
-              className="h-10 md:h-12 w-auto"
+              className="h-16 md:h-20 w-auto"
             />
           </a>
 
