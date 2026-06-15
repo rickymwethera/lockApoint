@@ -59,7 +59,7 @@ const Locations = () => {
             Lockers Near <span className="text-gradient-primary">You</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            We're expanding across Nairobi! Find a LockandGo locker at your favorite spots.
+            We're expanding across Nairobi! Find a LockAPoint locker at your favorite spots.
           </p>
         </motion.div>
 
@@ -119,8 +119,8 @@ const Locations = () => {
           className="mt-12 text-center"
         >
           <p className="text-muted-foreground">
-            More locations coming soon! Want LockandGo at your venue?{" "}
-            <a href="#contact" className="text-primary font-medium hover:underline">
+            More locations coming soon! Want LockAPoint at your venue?{" "}
+            <a href="#contact" className="text-accent font-medium hover:underline">
               Contact us
             </a>
           </p>
