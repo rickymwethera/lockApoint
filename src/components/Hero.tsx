@@ -7,24 +7,34 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center pt-20 bg-gradient-hero overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -right-32 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -left-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -right-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -left-32 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           {/* Badge */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/15 text-foreground font-medium text-sm mb-6 border border-accent/30"
           >
-            <Shield className="w-4 h-4" />
+            <Shield className="w-4 h-4 text-accent" />
             Trusted by 10,000+ Kenyans
           </motion.div>
 
-          <motion.h1 
+          {/* Tagline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="font-display tracking-[0.3em] uppercase text-sm sm:text-base text-accent font-bold mb-4"
+          >
+            Drop · Lock · and Go
+          </motion.p>
+
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
@@ -34,7 +44,7 @@ const Hero = () => {
             <span className="text-gradient-primary">Your Favorite Spots</span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
@@ -43,7 +53,7 @@ const Hero = () => {
             Store your valuables securely while you enjoy the night — pay by the hour, unlock via OTP. No worries, just good times.
           </motion.p>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
@@ -59,7 +69,7 @@ const Hero = () => {
           </motion.div>
 
           {/* Quick Stats */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}

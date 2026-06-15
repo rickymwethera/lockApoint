@@ -1,10 +1,14 @@
 import { motion } from "framer-motion";
-import { Lock, Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
+import { useTheme } from "./ThemeProvider";
+import logoLight from "@/assets/lockapoint-logo-light.svg.asset.json";
+import logoDark from "@/assets/lockapoint-logo-dark.svg.asset.json";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggle } = useTheme();
 
   const navLinks = [
     { href: "#about", label: "How It Works" },
@@ -14,7 +18,7 @@ const Header = () => {
   ];
 
   return (
-    <motion.header 
+    <motion.header
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -23,13 +27,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center shadow-soft group-hover:shadow-card transition-shadow">
-              <Lock className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <span className="font-display font-bold text-xl text-foreground">
-              Lock<span className="text-gradient-primary">andGo</span>
-            </span>
+          <a href="#" className="flex items-center gap-2">
+            <img
+              src={theme === "dark" ? logoDark.url : logoLight.url}
+              alt="LockAPoint"
+              className="h-10 md:h-12 w-auto"
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -45,25 +48,33 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button variant="hero" size="default">
-              Get Started
-            </Button>
+          {/* Right cluster */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggle}
+              aria-label="Toggle theme"
+              className="p-2 rounded-lg hover:bg-muted transition-colors"
+            >
+              {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
+            <div className="hidden md:block">
+              <Button variant="hero" size="default">
+                Get Started
+              </Button>
+            </div>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+              aria-label="Menu"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <motion.nav 
+          <motion.nav
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
