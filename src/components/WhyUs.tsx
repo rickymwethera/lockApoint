@@ -61,7 +61,7 @@ const WhyUs = () => {
           </h2>
           <p className="text-lg text-muted-foreground">
             Whether you're dancing the night away or shopping with friends, 
-            LockandGo keeps your valuables safe so you can focus on having fun.
+            LockAPoint keeps your valuables safe so you can focus on having fun.
           </p>
         </motion.div>
 

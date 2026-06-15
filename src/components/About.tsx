@@ -38,7 +38,7 @@ const About = () => {
             Simple, Secure, <span className="text-gradient-primary">Seamless</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            LockandGo makes it easy to secure your belongings in just three simple steps. 
+            LockAPoint makes it easy to secure your belongings in just three simple steps. 
             No apps to download, no complicated sign-ups.
           </p>
         </motion.div>
