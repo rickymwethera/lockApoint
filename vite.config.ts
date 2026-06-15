@@ -12,7 +12,11 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
-  plugins: [react()],
+  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   base: '/lockApoint/',
-  
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
 }));
