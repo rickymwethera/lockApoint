@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from "lucide-react";
-import logoDark from "@/assets/lockapoint-logo-dark.svg.asset.json";
+import logoDark from "@/assets/Artboard 2.svg";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,8 +14,8 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Instagram, href: "https://www.instagram.com/lockapoint/", label: "Instagram" },
+    // { icon: Twitter, href: "#", label: "Twitter" },
   ];
 
   return (
@@ -31,7 +31,7 @@ const Footer = () => {
             className="sm:col-span-2 lg:col-span-1"
           >
             <a href="#" className="inline-block mb-4">
-              <img src={logoDark.url} alt="LockAPoint" className="h-14 w-auto" />
+              <img src={logoDark} alt="LockAPoint" className="h-14 w-auto" />
             </a>
             <p className="text-white/70 mb-2 max-w-xs font-display tracking-widest uppercase text-xs text-[hsl(43_100%_57%)]">
               Drop · Lock · and Go
@@ -91,10 +91,10 @@ const Footer = () => {
                   <Mail className="w-4 h-4" />
                 </div>
                 <a
-                  href="mailto:hello@lockapoint.co.ke"
+                  href="mailto:lockapoint@gmail.com"
                   className="text-white/70 hover:text-[hsl(43_100%_57%)] transition-colors"
                 >
-                  hello@lockapoint.co.ke
+                  lockapoint@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-3">

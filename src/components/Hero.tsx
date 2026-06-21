@@ -49,13 +49,15 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button variant="hero" size="lg">
+            <Button variant="hero" size="lg" asChild>
+              <a href="#why-us">
               Learn More
               <ArrowRight className="w-5 h-5" />
+              </a>
             </Button>
-            <Button variant="outline" size="lg">
+            {/* <Button variant="outline" size="lg" >
               Find Locations
-            </Button>
+            </Button> */}
           </motion.div>
 
           {/* Quick Stats */}
@@ -65,16 +67,16 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-wrap gap-8 mt-12 justify-center"
           >
-            <div className="text-center">
+            {/* <div className="text-center">
               <p className="font-display text-3xl font-bold text-foreground">15+</p>
               <p className="text-muted-foreground text-sm">Locations</p>
-            </div>
+            </div> */}
             <div className="text-center">
               <p className="font-display text-3xl font-bold text-foreground">24/7</p>
               <p className="text-muted-foreground text-sm">Access</p>
             </div>
             <div className="text-center">
-              <p className="font-display text-3xl font-bold text-foreground">KES 50</p>
+              <p className="font-display text-3xl font-bold text-foreground">KES 100</p>
               <p className="text-muted-foreground text-sm">Per Hour</p>
             </div>
           </motion.div>

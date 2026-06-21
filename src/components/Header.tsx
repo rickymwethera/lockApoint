@@ -3,8 +3,8 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { useTheme } from "./ThemeProvider";
-import logoLight from "@/assets/lockapoint-logo-light-v2.svg.asset.json";
-import logoDark from "@/assets/lockapoint-logo-dark-v2.svg.asset.json";
+import logoLight from "@/assets/Artboard 2 copy.svg";
+import logoDark from "@/assets/Artboard 2 copy.svg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +29,7 @@ const Header = () => {
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
             <img
-              src={theme === "dark" ? logoDark.url : logoLight.url}
+              src={theme === "dark" ? logoDark : logoLight}
               alt="LockAPoint"
               className="h-16 md:h-20 w-auto"
             />
@@ -57,11 +57,11 @@ const Header = () => {
             >
               {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
-            <div className="hidden md:block">
+            {/* <div className="hidden md:block">
               <Button variant="hero" size="default">
                 Get Started
               </Button>
-            </div>
+            </div> */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
