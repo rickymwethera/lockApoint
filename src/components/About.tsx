@@ -1,110 +1,75 @@
-import { motion } from "framer-motion";
-import { Lock, Smartphone, CreditCard, CheckCircle } from "lucide-react";
+import { Check } from "lucide-react";
+import Reveal from "./Reveal";
+import SectionHead from "./SectionHead";
+
+const steps = [
+  {
+    title: "Find a Locker",
+    description: "Visit any of our partner locations and find an available secure locker.",
+  },
+  {
+    title: "Pay & Store",
+    description: "Pay conveniently via M-Pesa or card. Store your valuables safely.",
+  },
+  {
+    title: "Unlock with OTP",
+    description: "Receive a unique OTP code. Enter it to unlock your locker anytime.",
+  },
+];
+
+const features = ["No app required", "24/7 availability", "Secure OTP access", "M-Pesa & card payment"];
 
 const About = () => {
-  const steps = [
-    {
-      icon: Lock,
-      title: "Find a Locker",
-      description: "Visit any of our partner locations and find an available secure locker.",
-    },
-    {
-      icon: CreditCard,
-      title: "Pay & Store",
-      description: "Pay conveniently via M-Pesa or card. Store your valuables safely.",
-    },
-    {
-      icon: Smartphone,
-      title: "Unlock with OTP",
-      description: "Receive a unique OTP code. Enter it to unlock your locker anytime.",
-    },
-  ];
-
   return (
-    <section id="about" className="py-20 lg:py-32 bg-secondary/30">
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+    <section id="about" className="py-20 lg:py-32">
+      <div className="container">
+        <SectionHead
+          index="01"
+          label="How It Works"
+          title={
+            <>
+              Simple, secure, <span className="tape">seamless.</span>
+            </>
+          }
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4">
-            How It Works
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Simple, Secure, <span className="text-gradient-primary">Seamless</span>
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            LockAPoint makes it easy to secure your belongings in just three simple steps. 
-            No apps to download, no complicated sign-ups.
-          </p>
-        </motion.div>
+          LockAPoint makes it easy to secure your belongings in just three simple steps. No apps to download,
+          no complicated sign-ups.
+        </SectionHead>
 
-        {/* Steps */}
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+        <ol className="mt-16 grid border-y-2 border-foreground md:grid-cols-3 lg:mt-20">
           {steps.map((step, index) => (
-            <motion.div
+            <Reveal
+              as="li"
               key={step.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="relative"
+              delay={index * 0.08}
+              className="group relative border-foreground/20 px-0 py-10 md:px-8 md:py-12 [&:not(:first-child)]:border-t md:[&:not(:first-child)]:border-l md:[&:not(:first-child)]:border-t-0 md:first:pl-0 md:last:pr-0"
             >
-              {/* Connector Line */}
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-16 left-[60%] w-[80%] h-0.5 bg-gradient-to-r from-primary/30 to-transparent" />
-              )}
-
-              <div className="bg-card rounded-2xl p-8 shadow-card border border-border hover:shadow-elevated transition-shadow group">
-                {/* Step Number */}
-                <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-accent flex items-center justify-center">
-                  <span className="font-display font-bold text-accent-foreground">{index + 1}</span>
-                </div>
-
-                {/* Icon */}
-                <div className="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <step.icon className="w-8 h-8 text-primary-foreground" />
-                </div>
-
-                <h3 className="font-display text-xl font-bold text-foreground mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {step.description}
-                </p>
+              <span
+                className="absolute left-0 top-[-2px] h-1.5 w-0 bg-signal transition-[width] duration-300 group-hover:w-full"
+                aria-hidden
+              />
+              <div className="flex items-baseline justify-between">
+                <span className="font-condensed text-[5.5rem] font-black leading-none tracking-tight text-foreground lg:text-[7rem]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="label">Step {index + 1}/3</span>
               </div>
-            </motion.div>
+              <h3 className="mt-8 font-semicondensed text-2xl font-bold text-foreground">{step.title}</h3>
+              <p className="mt-3 max-w-xs leading-relaxed text-muted-foreground">{step.description}</p>
+            </Reveal>
           ))}
-        </div>
+        </ol>
 
-        {/* Features List */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 bg-card rounded-3xl p-8 lg:p-12 shadow-card border border-border"
-        >
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              "No app required",
-              "24/7 availability",
-              "Secure OTP access",
-              "M-Pesa & card payment",
-            ].map((feature, index) => (
-              <div key={feature} className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <CheckCircle className="w-5 h-5 text-primary" />
-                </div>
-                <span className="font-medium text-foreground">{feature}</span>
-              </div>
+        <Reveal delay={0.1}>
+          <ul className="mt-10 grid gap-px bg-ink text-ink sm:grid-cols-2 lg:grid-cols-4">
+            {features.map((feature) => (
+              <li key={feature} className="flex items-center gap-3 bg-signal px-5 py-5">
+                <Check className="h-5 w-5 shrink-0" strokeWidth={2.5} aria-hidden />
+                <span className="font-mono text-sm font-medium uppercase tracking-[0.08em]">{feature}</span>
+              </li>
             ))}
-          </div>
-        </motion.div>
+          </ul>
+        </Reveal>
       </div>
     </section>
   );

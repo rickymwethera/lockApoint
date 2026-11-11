@@ -2,94 +2,105 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap');
+/*
+  LockAPoint — "locker room signage"
+  Two inks (warm black + brand yellow) on paper. Flat colour only:
+  no gradients, glows or glass. Type is a condensed grotesk for
+  headlines and a monospace for the stencilled bits (numbers, codes, prices).
+*/
 
 @layer base {
   :root {
-    /* Light mode — white background, black text, yellow accent */
-    --background: 0 0% 97%;
-    --foreground: 0 0% 15%;
+    /* Brand constants — the same in both themes */
+    --ink: 30 10% 7%; /* #141210 */
+    --paper: 43 22% 93%; /* #F2EFE8 */
+    --signal: 43 99% 57%; /* #FEC125 — logo yellow */
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 4%;
+    --background: 43 22% 93%;
+    --foreground: 30 10% 7%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 4%;
+    --card: 43 30% 97%;
+    --card-foreground: 30 10% 7%;
 
-    --primary: 0 0% 4%;
-    --primary-foreground: 0 0% 100%;
+    --popover: 43 30% 97%;
+    --popover-foreground: 30 10% 7%;
 
-    --secondary: 45 100% 96%;
-    --secondary-foreground: 0 0% 4%;
+    --primary: 30 10% 7%;
+    --primary-foreground: 43 22% 93%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 40%;
+    --secondary: 43 18% 88%;
+    --secondary-foreground: 30 10% 7%;
 
-    --accent: 43 100% 57%;
-    --accent-foreground: 0 0% 4%;
+    --muted: 43 16% 88%;
+    --muted-foreground: 30 6% 36%;
 
-    --destructive: 0 84.2% 60.2%;
+    --accent: 43 99% 57%;
+    --accent-foreground: 30 10% 7%;
+
+    --destructive: 4 74% 48%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 43 100% 57%;
+    --border: 35 10% 78%;
+    --input: 35 10% 78%;
+    --ring: 43 99% 57%;
 
-    --radius: 0.75rem;
+    --radius: 0.125rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(43 100% 57%) 0%, hsl(38 100% 50%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(45 100% 97%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(43 100% 57%) 0%, hsl(35 95% 50%) 100%);
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.08);
-    --shadow-card: 0 8px 30px -8px hsl(0 0% 0% / 0.12);
-    --shadow-elevated: 0 20px 50px -12px hsl(43 100% 57% / 0.25);
+    /* Kept for the shadcn button variants — now flat */
+    --gradient-primary: hsl(var(--signal));
+    --gradient-hero: hsl(var(--background));
+    --gradient-accent: hsl(var(--signal));
+    --shadow-soft: none;
+    --shadow-card: 4px 4px 0 0 hsl(var(--foreground));
+    --shadow-elevated: 4px 4px 0 0 hsl(var(--foreground));
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 20%;
-    --sidebar-primary: 0 0% 4%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 43 100% 95%;
-    --sidebar-accent-foreground: 0 0% 4%;
-    --sidebar-border: 0 0% 90%;
-    --sidebar-ring: 43 100% 57%;
+    --sidebar-background: 43 22% 93%;
+    --sidebar-foreground: 30 10% 7%;
+    --sidebar-primary: 30 10% 7%;
+    --sidebar-primary-foreground: 43 22% 93%;
+    --sidebar-accent: 43 18% 88%;
+    --sidebar-accent-foreground: 30 10% 7%;
+    --sidebar-border: 35 10% 78%;
+    --sidebar-ring: 43 99% 57%;
   }
 
   .dark {
-    /* Dark mode — black background, white text, yellow accent */
-    --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    --background: 30 6% 7%; /* #121110 */
+    --foreground: 43 22% 93%;
 
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 98%;
+    --card: 30 5% 10%;
+    --card-foreground: 43 22% 93%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 30 5% 10%;
+    --popover-foreground: 43 22% 93%;
 
-    --primary: 43 100% 57%;
-    --primary-foreground: 0 0% 4%;
+    --primary: 43 22% 93%;
+    --primary-foreground: 30 10% 7%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 30 4% 14%;
+    --secondary-foreground: 43 22% 93%;
 
-    --muted: 0 0% 14%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 30 4% 14%;
+    --muted-foreground: 40 8% 64%;
 
-    --accent: 43 100% 57%;
-    --accent-foreground: 0 0% 4%;
+    --accent: 43 99% 57%;
+    --accent-foreground: 30 10% 7%;
 
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 4 70% 52%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 43 100% 57%;
+    --border: 30 4% 22%;
+    --input: 30 4% 22%;
+    --ring: 43 99% 57%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(43 100% 57%) 0%, hsl(38 100% 50%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(0 0% 7%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(43 100% 57%) 0%, hsl(35 95% 50%) 100%);
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.5);
-    --shadow-card: 0 8px 30px -8px hsl(0 0% 0% / 0.6);
-    --shadow-elevated: 0 20px 50px -12px hsl(43 100% 57% / 0.3);
+    --sidebar-background: 30 6% 7%;
+    --sidebar-foreground: 43 22% 93%;
+    --sidebar-primary: 43 99% 57%;
+    --sidebar-primary-foreground: 30 10% 7%;
+    --sidebar-accent: 30 4% 14%;
+    --sidebar-accent-foreground: 43 22% 93%;
+    --sidebar-border: 30 4% 22%;
+    --sidebar-ring: 43 99% 57%;
   }
 }
 
@@ -98,22 +109,106 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Archivo", system-ui, sans-serif;
+    font-feature-settings: "ss01";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Archivo", system-ui, sans-serif;
+  }
+
+  ::selection {
+    background: hsl(var(--signal));
+    color: hsl(var(--ink));
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--signal));
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* Condensed display face — Archivo's width axis */
+  .font-condensed {
+    font-stretch: 68%;
+  }
+
+  .font-semicondensed {
+    font-stretch: 84%;
+  }
+
+  /* The little stencilled label used above every section heading */
+  .label {
+    @apply font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground;
+  }
+
+  /* Flat "tape" highlight behind words; wraps cleanly across lines */
+  .tape {
+    background: hsl(var(--signal));
+    color: hsl(var(--ink));
+    padding: 0 0.12em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  /* Hazard stripe, used sparingly */
+  .hazard {
+    background: repeating-linear-gradient(
+      -45deg,
+      hsl(var(--signal)) 0 12px,
+      hsl(var(--ink)) 12px 24px
+    );
+  }
+
+  /* Pressed-metal vent slits on locker doors */
+  .vents {
+    background: repeating-linear-gradient(
+      to bottom,
+      currentColor 0 2px,
+      transparent 2px 6px
+    );
+  }
+
+  .btn-ink {
+    @apply inline-flex items-center gap-3 bg-foreground px-6 py-4 font-mono text-sm font-medium uppercase tracking-[0.12em] text-background transition-colors duration-150;
+  }
+  .btn-ink:hover {
+    background: hsl(var(--signal));
+    color: hsl(var(--ink));
+  }
+
+  .btn-signal {
+    @apply inline-flex items-center gap-3 px-6 py-4 font-mono text-sm font-medium uppercase tracking-[0.12em] transition-colors duration-150;
+    background: hsl(var(--signal));
+    color: hsl(var(--ink));
+  }
+  .btn-signal:hover {
+    background: hsl(var(--paper));
   }
 }
 
 @layer utilities {
   .text-gradient-primary {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: hsl(var(--signal));
   }
 
   .bg-gradient-hero {
@@ -138,5 +233,22 @@
 
   .shadow-elevated {
     box-shadow: var(--shadow-elevated);
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+      animation: none;
+    }
   }
 }
