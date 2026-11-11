@@ -1,84 +1,75 @@
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import { Button } from "./ui/button";
+import { ArrowDown } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import LockerBank from "./LockerBank";
 
 const Hero = () => {
+  const reduce = useReducedMotion();
+  const rise = (delay: number) =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 18 },
+          animate: { opacity: 1, y: 0 },
+          transition: { duration: 0.55, ease: [0.2, 0.7, 0.2, 1] as const, delay },
+        };
+
   return (
-    <section className="relative min-h-screen flex items-center pt-20 bg-gradient-hero overflow-hidden">
-      {/* Background Decorations */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -right-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -left-32 w-96 h-96 bg-accent/20 rounded-full blur-3xl" />
-      </div>
+    <section className="relative overflow-hidden pt-16 md:pt-20">
+      <div className="container">
+        <div className="grid items-center gap-14 py-14 sm:py-20 lg:grid-cols-12 lg:gap-10 lg:py-24">
+          <div className="lg:col-span-7">
+            <motion.p {...rise(0.05)} className="label mb-8 flex items-center gap-3 text-foreground">
+              <span className="h-2.5 w-2.5 bg-signal" aria-hidden />
+              Drop · Lock · and Go
+            </motion.p>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
+            <motion.h1
+              {...rise(0.12)}
+              className="font-condensed text-[3.4rem] font-extrabold leading-[0.88] tracking-[-0.015em] text-foreground sm:text-7xl lg:text-[6.4rem] xl:text-[7.2rem]"
+            >
+              Safe, convenient lockers at <span className="tape">your favorite spots.</span>
+            </motion.h1>
 
-          {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="font-display tracking-[0.3em] uppercase text-sm sm:text-base text-accent font-bold mb-4"
-          >
-            Drop · Lock · and Go
-          </motion.p>
+            <motion.p
+              {...rise(0.2)}
+              className="mt-8 max-w-lg text-lg leading-relaxed text-muted-foreground sm:text-xl"
+            >
+              Store your valuables securely while you enjoy the night. Pay by the hour, unlock via OTP. No
+              worries, just good times.
+            </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6"
-          >
-            Safe, Convenient Lockers at{" "}
-            <span className="text-gradient-primary">Your Favorite Spots</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-xl mx-auto"
-          >
-            Store your valuables securely while you enjoy the night — pay by the hour, unlock via OTP. No worries, just good times.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <Button variant="hero" size="lg" asChild>
-              <a href="#why-us">
-              Learn More
-              <ArrowRight className="w-5 h-5" />
+            <motion.div {...rise(0.28)} className="mt-10 flex flex-col gap-8 sm:flex-row sm:items-center">
+              <a href="#why-us" className="btn-ink self-start">
+                Learn More
+                <ArrowDown className="h-4 w-4" />
               </a>
-            </Button>
-            {/* <Button variant="outline" size="lg" >
-              Find Locations
-            </Button> */}
-          </motion.div>
 
-          {/* Quick Stats */}
+              <dl className="flex divide-x-2 divide-foreground border-2 border-foreground self-start">
+                <div className="px-4 py-2.5">
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">Access</dt>
+                  <dd className="font-condensed text-2xl font-bold leading-tight text-foreground">24/7</dd>
+                </div>
+                <div className="px-4 py-2.5">
+                  <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                    Per Hour
+                  </dt>
+                  <dd className="font-condensed text-2xl font-bold leading-tight text-foreground">KES 100</dd>
+                </div>
+              </dl>
+            </motion.div>
+          </div>
+
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap gap-8 mt-12 justify-center"
+            {...(reduce
+              ? {}
+              : {
+                  initial: { opacity: 0, y: 24 },
+                  animate: { opacity: 1, y: 0 },
+                  transition: { duration: 0.7, ease: [0.2, 0.7, 0.2, 1] as const, delay: 0.2 },
+                })}
+            className="lg:col-span-5"
           >
-            {/* <div className="text-center">
-              <p className="font-display text-3xl font-bold text-foreground">15+</p>
-              <p className="text-muted-foreground text-sm">Locations</p>
-            </div> */}
-            <div className="text-center">
-              <p className="font-display text-3xl font-bold text-foreground">24/7</p>
-              <p className="text-muted-foreground text-sm">Access</p>
-            </div>
-            <div className="text-center">
-              <p className="font-display text-3xl font-bold text-foreground">KES 100</p>
-              <p className="text-muted-foreground text-sm">Per Hour</p>
-            </div>
+            <LockerBank />
           </motion.div>
         </div>
       </div>

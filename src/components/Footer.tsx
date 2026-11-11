@@ -1,145 +1,139 @@
-import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Facebook, Instagram, Twitter } from "lucide-react";
-import logoDark from "@/assets/Artboard 2.svg";
+import { Facebook, Instagram, ArrowUpRight } from "lucide-react";
+import Logo from "./Logo";
+import Reveal from "./Reveal";
+
+const quickLinks = [
+  { label: "How It Works", href: "#about" },
+  { label: "Locations", href: "#locations" },
+  { label: "Why Choose Us", href: "#why-us" },
+  { label: "Contact", href: "#contact" },
+];
+
+const socialLinks = [
+  { icon: Facebook, href: "#", label: "Facebook" },
+  { icon: Instagram, href: "https://www.instagram.com/lockapoint/", label: "Instagram" },
+];
+
+const linkCls = "text-paper/70 transition-colors hover:text-signal";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const quickLinks = [
-    { label: "How It Works", href: "#about" },
-    { label: "Locations", href: "#locations" },
-    { label: "Why Choose Us", href: "#why-us" },
-    { label: "Contact", href: "#contact" },
-  ];
-
-  const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "https://www.instagram.com/lockapoint/", label: "Instagram" },
-    // { icon: Twitter, href: "#", label: "Twitter" },
-  ];
-
   return (
-    <footer id="contact" className="bg-[hsl(0_0%_4%)] text-white pt-16 lg:pt-24 pb-8">
-      <div className="container mx-auto px-4">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-white/10">
-          {/* Brand */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="sm:col-span-2 lg:col-span-1"
-          >
-            <a href="#" className="inline-block mb-4">
-              <img src={logoDark} alt="LockAPoint" className="h-14 w-auto" />
+    <footer id="contact" className="bg-ink text-paper dark:border-t-2 dark:border-signal">
+      <div className="container pt-20 lg:pt-28">
+        {/* headline row */}
+        <Reveal className="grid gap-8 border-b border-paper/15 pb-14 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-8">
+            <p className="mb-6 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.14em] text-paper/60">
+              <span className="text-paper">04</span>
+              <span className="h-px w-8 bg-paper/40" aria-hidden />
+              Contact Us
+            </p>
+            <a
+              href="mailto:lockapoint@gmail.com"
+              className="group inline-flex flex-wrap items-baseline gap-x-4 font-condensed text-4xl font-extrabold leading-none tracking-tight sm:text-6xl lg:text-7xl"
+            >
+              <span className="underline decoration-signal decoration-[3px] underline-offset-[10px] transition-colors group-hover:text-signal">
+                lockapoint@gmail.com
+              </span>
+              <ArrowUpRight className="h-8 w-8 text-signal transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 sm:h-12 sm:w-12" />
             </a>
-            <p className="text-white/70 mb-2 max-w-xs font-display tracking-widest uppercase text-xs text-[hsl(43_100%_57%)]">
-              Drop · Lock · and Go
-            </p>
-            <p className="text-white/70 mb-6 max-w-xs">
-              Secure locker solutions for clubs, malls, and events across Kenya.
-              Your valuables, safely stored.
-            </p>
-            {/* Social Links */}
-            <div className="flex items-center gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[hsl(43_100%_57%)] hover:text-[hsl(0_0%_4%)] transition-colors"
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
-          </motion.div>
+          </div>
+          <p className="max-w-xs text-paper/70 lg:col-span-4 lg:justify-self-end">
+            Secure locker solutions for clubs, malls, and events across Kenya. Your valuables, safely stored.
+          </p>
+        </Reveal>
 
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <h4 className="font-display font-bold text-lg mb-4">Quick Links</h4>
+        {/* columns */}
+        <div className="grid gap-12 py-14 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <h4 className="mb-5 font-mono text-xs uppercase tracking-[0.14em] text-signal">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-white/70 hover:text-[hsl(43_100%_57%)] transition-colors"
-                  >
+                  <a href={link.href} className={linkCls}>
                     {link.label}
                   </a>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <h4 className="font-display font-bold text-lg mb-4">Contact Us</h4>
-            <ul className="space-y-4">
-              <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-4 h-4" />
-                </div>
-                <a
-                  href="mailto:lockapoint@gmail.com"
-                  className="text-white/70 hover:text-[hsl(43_100%_57%)] transition-colors"
-                >
+          <div>
+            <h4 className="mb-5 font-mono text-xs uppercase tracking-[0.14em] text-signal">Reach Us</h4>
+            <ul className="space-y-3">
+              <li>
+                <a href="mailto:lockapoint@gmail.com" className={linkCls}>
                   lockapoint@gmail.com
                 </a>
               </li>
-              <li className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-4 h-4" />
-                </div>
-                <a
-                  href="tel:+254700123456"
-                  className="text-white/70 hover:text-[hsl(43_100%_57%)] transition-colors"
-                >
+              <li>
+                <a href="tel:+254700123456" className={linkCls}>
                   +254 700 123 456
                 </a>
               </li>
-              <li className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <span className="text-white/70">Nairobi, Kenya</span>
-              </li>
+              <li className="text-paper/70">Nairobi, Kenya</li>
             </ul>
-          </motion.div>
+          </div>
 
-          {/* Hours */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <h4 className="font-display font-bold text-lg mb-4">Hours</h4>
-            <div className="space-y-2 text-white/70">
-              <p>Locker access: <span className="text-white font-medium">24/7</span></p>
-              <p>Support hours:</p>
-              <p>Mon - Fri: 8AM - 8PM</p>
-              <p>Sat - Sun: 10AM - 6PM</p>
-            </div>
-          </motion.div>
+          <div>
+            <h4 className="mb-5 font-mono text-xs uppercase tracking-[0.14em] text-signal">Hours</h4>
+            <dl className="space-y-3 text-paper/70">
+              <div className="flex justify-between gap-6 border-b border-paper/10 pb-3">
+                <dt>Locker access</dt>
+                <dd className="font-medium text-paper">24/7</dd>
+              </div>
+              <div>
+                <dt className="mb-2">Support hours:</dt>
+                <dd className="flex justify-between gap-6 font-mono text-sm">
+                  <span>Mon - Fri</span>
+                  <span>8AM - 8PM</span>
+                </dd>
+                <dd className="mt-1 flex justify-between gap-6 font-mono text-sm">
+                  <span>Sat - Sun</span>
+                  <span>10AM - 6PM</span>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div>
+            <h4 className="mb-5 font-mono text-xs uppercase tracking-[0.14em] text-signal">Follow</h4>
+            <ul className="flex gap-2">
+              {socialLinks.map((social) => (
+                <li key={social.label}>
+                  <a
+                    href={social.href}
+                    aria-label={social.label}
+                    className="grid h-11 w-11 place-items-center border border-paper/25 transition-colors hover:border-signal hover:bg-signal hover:text-ink"
+                  >
+                    <social.icon className="h-5 w-5" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+      </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/50">
-          <p>© {currentYear} LockAPoint. All rights reserved.</p>
+      {/* giant wordmark */}
+      <div className="container" aria-hidden>
+        <Logo className="w-full text-paper" />
+      </div>
+
+      <div className="container">
+        <div className="mt-8 flex flex-col gap-4 border-t border-paper/15 py-8 text-sm text-paper/50 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-mono text-xs uppercase tracking-[0.1em]">
+            © {currentYear} LockAPoint. All rights reserved.
+          </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="/terms" className="hover:text-white transition-colors">Terms & Conditions</a>
+            <a href="#" className="transition-colors hover:text-paper">
+              Privacy Policy
+            </a>
+            <a href="/terms" className="transition-colors hover:text-paper">
+              Terms & Conditions
+            </a>
           </div>
         </div>
       </div>
